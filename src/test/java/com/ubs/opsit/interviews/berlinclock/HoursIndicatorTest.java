@@ -3,7 +3,7 @@ package com.ubs.opsit.interviews.berlinclock;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.ubs.opsit.interviews.berlinclock.HoursIndicator;
+import com.ubs.opsit.interviews.berlinclock.BerlinUhrClock.HoursIndicator;
 
 public class HoursIndicatorTest {
 	
@@ -158,7 +158,7 @@ public class HoursIndicatorTest {
 		
 	private void assertFirstAndSecondRow(HoursIndicator hours, String expectedFirstRow, String expectedSecondRow) {
 		
-		Assert.assertEquals("First Row Did not match", expectedFirstRow, String.valueOf(hours.getFirstRow()));
-		Assert.assertEquals("Second Row Did not match", expectedSecondRow, String.valueOf(hours.getSecondRow()));
+		Assert.assertEquals("First Row Did not match", expectedFirstRow, String.valueOf(hours.secondRow));
+		Assert.assertEquals("Second Row Did not match", expectedSecondRow, String.valueOf(hours.thirdRow));
 	}
 }

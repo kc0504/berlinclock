@@ -3,7 +3,7 @@ package com.ubs.opsit.interviews.berlinclock;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.ubs.opsit.interviews.berlinclock.MinutesIndicator;
+import com.ubs.opsit.interviews.berlinclock.BerlinUhrClock.MinutesIndicator;
 
 public class MinutesIndicatorTest {
 
@@ -112,7 +112,7 @@ public class MinutesIndicatorTest {
 	
 	private void assertFirstAndSecondRow(MinutesIndicator berlinMinutes, String firstRow, String secondRow) {
 		
-		Assert.assertEquals("First Row did not match", firstRow, String.valueOf(berlinMinutes.getFirstRow()));
-		Assert.assertEquals("Second Row did not match", secondRow, String.valueOf(berlinMinutes.getSecondRow()));
+		Assert.assertEquals("First Row did not match", firstRow, String.valueOf(berlinMinutes.fourthRow));
+		Assert.assertEquals("Second Row did not match", secondRow, String.valueOf(berlinMinutes.fifthRow));
 	}
 }
