@@ -112,7 +112,7 @@ public class MinutesIndicatorTest {
 	
 	private void assertFirstAndSecondRow(MinutesIndicator berlinMinutes, String firstRow, String secondRow) {
 		
-		Assert.assertEquals("First Row did not match", firstRow, String.valueOf(berlinMinutes.fourthRow));
-		Assert.assertEquals("Second Row did not match", secondRow, String.valueOf(berlinMinutes.fifthRow));
+		Assert.assertEquals("First Row did not match", firstRow, String.valueOf(berlinMinutes.fourthRowLamps));
+		Assert.assertEquals("Second Row did not match", secondRow, String.valueOf(berlinMinutes.fifthRowLamps));
 	}
 }

@@ -23,39 +23,39 @@ public final class BerlinUhrClock {
 		
 		StringBuffer sb = new StringBuffer();
 		
-		sb.append(secondsIndiator.firstRow);
+		sb.append(secondsIndiator.firstRowLamp);
 		sb.append("\r\n");
-		sb.append(hoursIndicator.secondRow);
+		sb.append(hoursIndicator.secondRowLamps);
 		sb.append("\r\n");
-		sb.append(hoursIndicator.thirdRow);
+		sb.append(hoursIndicator.thirdRowLamps);
 		sb.append("\r\n");
-		sb.append(minutesIndicator.fourthRow);
+		sb.append(minutesIndicator.fourthRowLamps);
 		sb.append("\r\n");
-		sb.append(minutesIndicator.fifthRow);
+		sb.append(minutesIndicator.fifthRowLamps);
 		
 		return sb.toString();
 	}
 		
 	static class SecondsIndicator {
 		
-		final char firstRow;
+		final char firstRowLamp;
 		
 		public SecondsIndicator(Integer seconds) {
 			
-			firstRow = seconds % 2 == 0 ? YELLOWLAMP : OFFLAMP;
+			firstRowLamp = seconds % 2 == 0 ? YELLOWLAMP : OFFLAMP;
 		}
 	}
 	
 	static class HoursIndicator {
 		
-		final char[] secondRow = new char[4];
-		final char[] thirdRow = new char[4];
+		final char[] secondRowLamps = new char[4];
+		final char[] thirdRowLamps = new char[4];
 		
 		public HoursIndicator(int hours) {
 			
 			//init lamps with off values
-			Arrays.fill(secondRow, OFFLAMP);
-			Arrays.fill(thirdRow, OFFLAMP);
+			Arrays.fill(secondRowLamps, OFFLAMP);
+			Arrays.fill(thirdRowLamps, OFFLAMP);
 			
 			//switch on the required lamps as per input
 			switchOnSecondRowLamps(hours);
@@ -65,28 +65,28 @@ public final class BerlinUhrClock {
 		private void switchOnSecondRowLamps(int hours) {
 
 			for(int i = 0; i < hours / 5; i++) {
-				secondRow[i] = REDLAMP;
+				secondRowLamps[i] = REDLAMP;
 			}
 		}
 		
 		private void switchOnThirdRowLamps(int hours) {
 			
 			for(int i = 0; i < hours % 5; i++) {
-				thirdRow[i] = REDLAMP;
+				thirdRowLamps[i] = REDLAMP;
 			}
 		}
 	}
 	
 	static class MinutesIndicator {
 		
-		final char[] fourthRow = new char[11];
-		final char[] fifthRow = new char[4];
+		final char[] fourthRowLamps = new char[11];
+		final char[] fifthRowLamps = new char[4];
 		
 		public MinutesIndicator(int minutes) {
 			
 			//init lamps with off values
-			Arrays.fill(fourthRow, OFFLAMP);
-			Arrays.fill(fifthRow, OFFLAMP);
+			Arrays.fill(fourthRowLamps, OFFLAMP);
+			Arrays.fill(fifthRowLamps, OFFLAMP);
 			
 			//switch on the required lamps as per input
 			switchOnFourthRowLamps(minutes);
@@ -96,14 +96,14 @@ public final class BerlinUhrClock {
 		private void switchOnFourthRowLamps(int minutes) {
 			
 			for(int i = 0; i < minutes / 5; i++) {
-				fourthRow[i] = (i+1) % 3 == 0 ? REDLAMP : YELLOWLAMP;
+				fourthRowLamps[i] = (i+1) % 3 == 0 ? REDLAMP : YELLOWLAMP;
 			}
 		}
 
 		private void switchOnFifthRowLamps(int minutes) {
 			
 			for(int i = 0; i < minutes % 5; i++) {
-				fifthRow[i] = YELLOWLAMP;
+				fifthRowLamps[i] = YELLOWLAMP;
 			}		
 		}
 	}

@@ -158,7 +158,7 @@ public class HoursIndicatorTest {
 		
 	private void assertFirstAndSecondRow(HoursIndicator hours, String expectedFirstRow, String expectedSecondRow) {
 		
-		Assert.assertEquals("First Row Did not match", expectedFirstRow, String.valueOf(hours.secondRow));
-		Assert.assertEquals("Second Row Did not match", expectedSecondRow, String.valueOf(hours.thirdRow));
+		Assert.assertEquals("First Row Did not match", expectedFirstRow, String.valueOf(hours.secondRowLamps));
+		Assert.assertEquals("Second Row Did not match", expectedSecondRow, String.valueOf(hours.thirdRowLamps));
 	}
 }
