@@ -16,17 +16,17 @@ class MinutesIndicator {
 		Arrays.fill(firstRow, OFFLAMP);
 		Arrays.fill(secondRow, OFFLAMP);
 		
-		calculateFirstRow(minutes);
-		calculateSecondRow(minutes);
+		switchOnFirstRowLamps(minutes);
+		switchOnSecondRowLamps(minutes);
 	}
 
-	private void calculateFirstRow(int minutes) {
+	private void switchOnFirstRowLamps(int minutes) {
 		for(int i = 0; i < minutes / 5; i++) {
 			firstRow[i] = (i+1) % 3 == 0 ? REDLAMP : YELLOWLAMP;
 		}
 	}
 
-	private void calculateSecondRow(int minutes) {
+	private void switchOnSecondRowLamps(int minutes) {
 		for(int i = 0; i < minutes % 5; i++) {
 			secondRow[i] = YELLOWLAMP;
 		}		
